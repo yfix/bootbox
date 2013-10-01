@@ -62,4 +62,41 @@ describe("Bootbox", function() {
       });
     });
   });
+
+  describe("default locale setting", function() {
+    describe("with no html lang attribute", function() {
+      beforeEach(function() {
+        this.spy = sinon.spy(bootbox, "setDefaults");
+        bootbox.init();
+      });
+
+      it("does not alter the default locale", function() {
+        expect(this.spy).not.to.have.been.called;
+      });
+    });
+
+    describe("with an empty html lang attribute", function() {
+      beforeEach(function() {
+        this.spy = sinon.spy(bootbox, "setDefaults");
+        this.stub = sinon.stub($("html"), "attr").returns("");
+        bootbox.init();
+      });
+
+      it("does not alter the default locale", function() {
+        expect(this.spy).not.to.have.been.called;
+      });
+    });
+
+    describe("with an invalid html lang attribute", function() {
+      beforeEach(function() {
+        this.spy = sinon.spy($.fn, "extend");
+        this.stub = sinon.stub($("html"), "attr").returns("xx");
+        bootbox.init();
+      });
+
+      it("invokes setDefaults", function() {
+        expect(this.spy).to.have.been.called;
+      });
+    });
+  });
 });

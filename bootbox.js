@@ -711,6 +711,12 @@ window.bootbox = window.bootbox || (function init($, undefined) {
     window.bootbox = init(_$ || $);
   };
 
+  var lang = $("html").attr("lang");
+  console.log(lang);
+  if (lang) {
+    exports.setDefaults("locale", lang);
+  }
+
   return exports;
 
 }(window.jQuery));

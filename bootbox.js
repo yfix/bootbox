@@ -42,8 +42,9 @@
       "</div>",
     footer:
       "<div class='modal-footer'></div>",
-    closeButton:
-      "<button type='button' class='bootbox-close-button close' data-dismiss='modal' aria-hidden='true'>&times;</button>",
+    closeButton:'		<button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true"><span class="arrow" aria-hidden="true" style="font-size: 20px;"><span class="fa-stack "><i class="fa fa-circle-thin fa-stack-2x" style="color:wheat"></i><i class="fa fa-close fa-stack-1x"  style="color:#fff"></i></span></span></button>',
+
+//      "<button type='button' class='bootbox-close-button close' data-dismiss='modal' aria-hidden='true'>&times;</button>",
     form:
       "<form class='bootbox-form'></form>",
     inputs: {

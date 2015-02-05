@@ -77,8 +77,6 @@
     animate: true,
     // additional class string applied to the top level dialog
     className: null,
-    // whether or not to enable keyboard binding
-    keyboard: false,
     // whether or not to include a close button
     closeButton: true,
     // show the dialog immediately by default
@@ -300,18 +298,21 @@
     return options;
   }
 
+  /**
+   * @TODO: split into addLocale / removeLocale
+   */
   exports.defineLocale = function (name, values) {
-      if (values) {
-          locales[name] = {
-              OK: values.OK,
-              CANCEL: values.CANCEL,
-              CONFIRM: values.CONFIRM
-          };
-          return locales[name];
-      } else {
-          delete locales[name];
-          return null;
-      }
+    if (values) {
+      locales[name] = {
+        OK: values.OK,
+        CANCEL: values.CANCEL,
+        CONFIRM: values.CONFIRM
+      };
+      return locales[name];
+    } else {
+      delete locales[name];
+      return null;
+    }
   };
 
   exports.alert = function() {
@@ -724,7 +725,7 @@
 
     dialog.modal({
       backdrop: options.backdrop,
-      keyboard: options.keyboard || false,
+      keyboard: false,
       show: false
     });
 
